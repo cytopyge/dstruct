@@ -1,10 +1,10 @@
 import json
 
-json_data=open('settings.json')
+def getSettings():
+    json_data=open('settings.json')
+    json_data.close()
+    return json.load(json_data)
 
-data = json.load(json_data)
+data = getSettings();
 
-
-json_data.close()
-
-print(data['port1'])
+print(data)
