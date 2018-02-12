@@ -1,7 +1,6 @@
 import json
 
-def saveValue():
-    a_dict = {'ouwe_key': 'bbbbbbbbbbbbb'}
+def saveValue(a_dict):
     with open('test.json') as f:
         data = json.load(f)
     data.update(a_dict)
@@ -9,12 +8,16 @@ def saveValue():
         json.dump(data, f)
 
 def giveAll():
-    a_dict = {'ouwe_key': 'bbbbbbbbbbbbb'}
-    data = ""
     with open('test.json') as f:
         data = json.load(f)
     return data
 
+def getValue(val):
+    with open('test.json') as f:
+        data = json.load(f)
+    return data[val]
 
-saveValue()
-print(giveAll())
+saveValue({'port1': 'ccccc'})
+# print(giveAll())
+
+print(getValue("ouwe_key"))
