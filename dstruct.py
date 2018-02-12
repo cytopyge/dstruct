@@ -12,12 +12,12 @@ path = pyudev.Devices.from_sys_path
 # enumerate at startup
 for device in context.list_devices(subsystem='block'):
   if 'ID_FS_TYPE' in device:
-  if device.device_node[5:7] == 'sd':
-  # set dd parameters; input file, output file, block size, status
-  dd_if = '/dev/urandom'
-  dd_of = device.device_node
-  dd_bs = '1M'
-  dd_status = 'progress'
+    if device.device_node[5:7] == 'sd':
+    # set dd parameters; input file, output file, block size, status
+        dd_if = '/dev/urandom'
+        dd_of = device.device_node
+        dd_bs = '1M'
+        dd_status = 'progress'
 
   print(device.sys_name)
   call(['dd', 'if=' + dd_if, 'of=' + dd_of, 'bs=' + dd_bs, 'status=' + dd_status])
@@ -27,21 +27,23 @@ for device in context.list_devices(subsystem='block'):
 monitor = pyudev.Monitor.from_netlink(context)
 monitor.filter_by('block')
 
+
 # enumerate at device connection
 for device in iter(monitor.poll, None):
   if 'ID_FS_TYPE' in device:
-  if device.action == 'add':
-  if device.device_node[5:7] == 'sd':
-  # set dd parameters; input file, output file, block size, status
-  dd_if = '/dev/urandom'
-  dd_of = device.device_node
-  dd_bs = '1M'
-  dd_status = 'progress'
+    if device.action == 'add':
+        if device.device_node[5:7] == 'sd':
+        # set dd parameters; input file, output file, block size, status
+            dd_if = '/dev/urandom'
+            dd_of = device.device_node
+            dd_bs = '1M'
+            dd_status = 'progress'
 
   print(device.sys_name)
   call(['dd', 'if=' + dd_if, 'of=' + dd_of, 'bs=' + dd_bs, 'status=' + dd_status])
   print('completed')
   exit
+
 
 #TODO led status light control
 #TODO connect multiple devices
