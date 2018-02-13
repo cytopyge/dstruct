@@ -18,8 +18,3 @@ class Store:
         with open('test.json') as f:
             data = json.load(f)
         return data[val]
-
-opslag = Store()
-opslag.saveValue({'port1': 'leeg'})
-
-print(opslag.getValue("port1"))
