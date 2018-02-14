@@ -1,13 +1,17 @@
 #!/usr/bin/python3
 
+
 import pyudev
 from subprocess import call
+
 
 context = pyudev.Context()
 
 path = pyudev.Devices.from_sys_path
 
+
 #TODO def enumerate(device.device_node)
+
 
 # enumerate at startup
 for device in context.list_devices(subsystem='block'):
@@ -19,10 +23,12 @@ for device in context.list_devices(subsystem='block'):
         dd_bs = '1M'
         dd_status = 'progress'
 
+
   print(device.sys_name)
   call(['dd', 'if=' + dd_if, 'of=' + dd_of, 'bs=' + dd_bs, 'status=' + dd_status])
   print('completed')
   exit
+
 
 monitor = pyudev.Monitor.from_netlink(context)
 monitor.filter_by('block')
@@ -38,6 +44,7 @@ for device in iter(monitor.poll, None):
             dd_of = device.device_node
             dd_bs = '1M'
             dd_status = 'progress'
+
 
   print(device.sys_name)
   call(['dd', 'if=' + dd_if, 'of=' + dd_of, 'bs=' + dd_bs, 'status=' + dd_status])
