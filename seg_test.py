@@ -1,9 +1,8 @@
 import segment
 
-segment.showLeds()
-
+# make segment
 seg0 = segment.Segment(0)
-# seg0.ledsOn()
-seg0.showProc(100)
 
+# update process 255 format
+seg0.showProc(100)
 segment.showLeds()
