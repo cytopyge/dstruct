@@ -62,8 +62,20 @@ if __name__ == '__main__':
         time.sleep(0.1)
         channelIntensity = channelIntensity + 1
         seg0.showProc(channelIntensity)
-        print(channelIntensity)
+        print(seg0, channelIntensity)
         ring.show()
+
+    seg1 = Segment(1)
+    seg1.ledsOn()
+    ring.show()
+    channelIntensity = 0
+    while channelIntensity < 255:
+        time.sleep(0.1)
+        channelIntensity = channelIntensity + 1
+        seg1.showProc(channelIntensity)
+        print(seg1, channelIntensity)
+        ring.show()
+
     print("happy Ending")
 
 

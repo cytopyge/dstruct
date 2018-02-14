@@ -1,12 +1,9 @@
-class Segment():
-    segment = 0
-    def __init__(self, segment):
-        self.segment = segment
+import segment
 
-    def setLeds(self, proc):
-        print(self.segment)
-        print(proc)
+segment.showLeds()
 
-seg1 = Segment(1)
+seg0 = segment.Segment(0)
+# seg0.ledsOn()
+seg0.showProc(100)
 
-seg1.setLeds(2)
+segment.showLeds()
