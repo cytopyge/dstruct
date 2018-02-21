@@ -1,4 +1,11 @@
 import time
+import os
+
+if os.getuid() > 0:
+    print("sudo > stupidooo")
+    print("RUN: ")
+    print("sudo !!")
+    exit()
 
 from neopixel import *
 from random import randint
