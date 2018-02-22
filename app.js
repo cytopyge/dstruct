@@ -19,10 +19,8 @@ monitor.on('add', function(device) {
   console.log("add monitor");
   // New device
   if (device.DEVNAME.indexOf("/dev/sd") == 0 && device.DEVTYPE.indexOf("disk") == 0) {
-    console.log(device.DEVNAME);
-    console.log(device.DEVNAME, device.ID_SERIAL_SHORT);
     // console.log(device);
-    wipe(device.ID_SERIAL_SHORT)
+    wipe(device.DEVNAME, device.ID_SERIAL_SHORT)
   }
 });
 
