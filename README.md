@@ -12,4 +12,18 @@ sudo su;
 wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash;
 exit;
 node -v;
+
+sudo apt-get install libudev-dev
+
+npm install udev
+
+```
+
+DONE
+
+
+# Run it
+
+```
+node app
 ```
