@@ -1,5 +1,19 @@
 #!/usr/bin/python3
 
+##      _     _                   _
+##   __| |___| |_ _ __ _   _  ___| |_
+##  / _` / __| __| '__| | | |/ __| __|
+## | (_| \__ \ |_| |  | |_| | (__| |_
+##  \__,_|___/\__|_|   \__,_|\___|\__|
+##  _ _|_ _ ._    _  _  
+## (_\/|_(_)|_)\/(_|(/_ 
+##   /      |  /  _|    
+##
+## dstruct
+## monitor and wipe usb devices 
+## written in python 
+## (c) 2017 by cytopyge
+##
 
 import pyudev
 from subprocess import call
